@@ -29,7 +29,8 @@ docs/
 │   ├── [02-hidden-features-and-codenames.md]  # Codenames (Capybara/Tengu/Numbat), feature flags, internal vs external
 │   ├── [03-undercover-mode.md]                # Undercover Mode — hiding AI authorship in open-source repos
 │   ├── [04-remote-control-and-killswitches.md]# Remote Control — managed settings, killswitches, model overrides
-│   └── [05-future-roadmap.md]                 # Future Roadmap — Numbat, KAIROS, voice mode, unreleased tools
+│   ├── [05-future-roadmap.md]                 # Future Roadmap — Numbat, KAIROS, voice mode, unreleased tools
+│   └── [06-code-structure-analysis.md]        # Code Structure — layered architecture, tool system, services, state
 │
 ├── ko/                                        # 한국어
 │   ├── [01-텔레메트리와-프라이버시.md]          # 텔레메트리 및 프라이버시 — 수집 항목, 비활성화 불가 이유
@@ -43,7 +44,8 @@ docs/
     ├── [02-隐藏功能与模型代号.md]                # 隐藏功能 — 模型代号，feature flag，内外用户差异
     ├── [03-卧底模式分析.md]                     # 卧底模式 — 在开源项目中隐藏 AI 身份
     ├── [04-远程控制与紧急开关.md]                # 远程控制 — 托管设置，紧急开关，模型覆盖
-    └── [05-未来路线图.md]                       # 未来路线图 — Numbat，KAIROS，语音模式，未上线工具
+    ├── [05-未来路线图.md]                       # 未来路线图 — Numbat，KAIROS，语音模式，未上线工具
+    └── [06-代码结构分析.md]                     # 代码结构 — 分层架构、工具系统、服务层、状态管理
 ```
 
 > 파일명을 클릭하면 해당 보고서로 이동합니다.
@@ -55,6 +57,7 @@ docs/
 | 03 | **언더커버 모드** | Anthropic 직원은 공개 저장소에서 자동으로 언더커버 모드 진입. 모델 지시: **"정체를 들키지 마라"** — 모든 AI 저작 표시를 제거하고, 사람이 작성한 것처럼 커밋. **강제 비활성화 옵션 없음.** | [EN](docs/en/03-undercover-mode.md) · [한국어](docs/ko/03-언더커버-모드.md) · [中文](docs/zh/03-卧底模式分析.md) |
 | 04 | **원격 제어 및 킬스위치** | 1시간마다 `/api/claude_code/settings` 폴링. 위험 변경 시 차단 다이얼로그 — **거부 = 앱 종료**. 6개 이상 킬스위치 (권한 우회, fast 모드, 음성 모드, 분석 싱크). GrowthBook으로 동의 없이 사용자 동작 변경 가능. | [EN](docs/en/04-remote-control-and-killswitches.md) · [한국어](docs/ko/04-원격-제어와-킬스위치.md) · [中文](docs/zh/04-远程控制与紧急开关.md) |
 | 05 | **향후 로드맵** | **Numbat** 코드네임 확인. Opus 4.7 / Sonnet 4.8 개발 중. **KAIROS** = 완전 자율 에이전트 모드, `<tick>` 하트비트, 푸시 알림, PR 구독. 음성 모드(push-to-talk) 준비 완료. 미공개 도구 17개 발견. | [EN](docs/en/05-future-roadmap.md) · [한국어](docs/ko/05-향후-로드맵.md) · [中文](docs/zh/05-未来路线图.md) |
+| 06 | **코드 구조 분석** | 8계층 아키텍처: 엔트리→쿼리엔진→도구→서비스→상태→UI→명령→유틸리티. `query.ts`(~785 KB)가 최대 파일로 전체 에이전트 루프 포함. 40+개 도구, ~80개 슬래시 명령어, Zustand 상태 관리, React/Ink UI. | [EN](docs/en/06-code-structure-analysis.md) · [中文](docs/zh/06-代码结构分析.md) |
 
 ---
 

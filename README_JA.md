@@ -29,7 +29,8 @@ docs/
 │   ├── [02-hidden-features-and-codenames.md]  # Codenames (Capybara/Tengu/Numbat), feature flags, internal vs external
 │   ├── [03-undercover-mode.md]                # Undercover Mode — hiding AI authorship in open-source repos
 │   ├── [04-remote-control-and-killswitches.md]# Remote Control — managed settings, killswitches, model overrides
-│   └── [05-future-roadmap.md]                 # Future Roadmap — Numbat, KAIROS, voice mode, unreleased tools
+│   ├── [05-future-roadmap.md]                 # Future Roadmap — Numbat, KAIROS, voice mode, unreleased tools
+│   └── [06-code-structure-analysis.md]        # Code Structure — layered architecture, tool system, services, state
 │
 ├── ja/                                        # 日本語
 │   ├── [01-テレメトリとプライバシー.md]          # テレメトリとプライバシー — 収集項目、無効化不可の理由
@@ -50,7 +51,8 @@ docs/
     ├── [02-隐藏功能与模型代号.md]                # 隐藏功能 — 模型代号，feature flag，内外用户差异
     ├── [03-卧底模式分析.md]                     # 卧底模式 — 在开源项目中隐藏 AI 身份
     ├── [04-远程控制与紧急开关.md]                # 远程控制 — 托管设置，紧急开关，模型覆盖
-    └── [05-未来路线图.md]                       # 未来路线图 — Numbat，KAIROS，语音模式，未上线工具
+    ├── [05-未来路线图.md]                       # 未来路线图 — Numbat，KAIROS，语音模式，未上线工具
+    └── [06-代码结构分析.md]                     # 代码结构 — 分层架构、工具系统、服务层、状态管理
 ```
 
 > ファイル名をクリックすると該当レポートに移動します。
@@ -62,6 +64,7 @@ docs/
 | 03 | **アンダーカバーモード** | Anthropic社員は公開リポジトリで自動的にアンダーカバーモードに突入。モデルへの指示: **「正体を明かすな」** — 全AI帰属表示を除去し、人間が書いたようにコミット。**強制無効化オプションなし。** | [EN](docs/en/03-undercover-mode.md) · [日本語](docs/ja/03-アンダーカバーモード.md) |
 | 04 | **リモート制御とキルスイッチ** | 1時間ごとに `/api/claude_code/settings` をポーリング。危険な変更時にブロッキングダイアログ — **拒否＝アプリ終了**。6以上のキルスイッチ（パーミッションバイパス、Fastモード、音声モード、分析シンク）。GrowthBookで同意なくユーザー動作変更可能。 | [EN](docs/en/04-remote-control-and-killswitches.md) · [日本語](docs/ja/04-リモート制御とキルスイッチ.md) |
 | 05 | **今後のロードマップ** | **Numbat** コードネーム確認。Opus 4.7 / Sonnet 4.8開発中。**KAIROS** ＝ 完全自律エージェントモード、`<tick>`ハートビート、プッシュ通知、PR購読。音声モード（push-to-talk）準備完了。未公開ツール17個発見。 | [EN](docs/en/05-future-roadmap.md) · [日本語](docs/ja/05-今後のロードマップ.md) |
+| 06 | **コード構造分析** | 8層アーキテクチャ: エントリー→クエリエンジン→ツール→サービス→状態→UI→コマンド→ユーティリティ。`query.ts`（~785 KB）が最大ファイルで全エージェントループを含む。40+ツール、~80スラッシュコマンド、Zustand状態管理、React/Ink UI。 | [EN](docs/en/06-code-structure-analysis.md) · [中文](docs/zh/06-代码结构分析.md) |
 
 ---
 
